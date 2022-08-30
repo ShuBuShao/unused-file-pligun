@@ -1,0 +1,19 @@
+{
+  "name": "unused-file-pligun",
+  "version": "1.0.0",
+  "description": "移除无用文件的webpack插件",
+  "main": "unusedFilePingin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShuBuShao/unused-file-pligun.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShuBuShao/unused-file-pligun/issues"
+  },
+  "homepage": "https://github.com/ShuBuShao/unused-file-pligun#readme"
+}
