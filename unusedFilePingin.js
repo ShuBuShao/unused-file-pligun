@@ -47,26 +47,26 @@ class UnusedFilePingin {
 
     compiler.hooks.afterEmit.tap("UnusedFilePingin", (compilation) => {
       // fileDependencies 利用set做一遍去重
-      const fileDependenciesList = [...new Set(compilation.fileDependencies)];
+      const fileDependencies = [...new Set(compilation.fileDependencies)];
       // 排除掉 node_module
-      const filterFileDependenciesList = fileDependenciesList.filter(
+      const filterFileDependencies = fileDependencies.filter(
         (file) => !file.includes(NODE_MODULES)
       );
 
       // 扫描全部文件列表
       // 扫描规则, exclude, excludeSuffix, includeSuffix
       const allFileList = getAllFiles(resolveApp(root));
-      const allFilterFiles = filterFiles({
+      const allFilterFileList = filterFiles({
         allFiles: allFileList,
         exclude,
         excludeSuffix,
         includeSuffix,
       });
-      // console.log(allFilterFiles);
+      // console.log(allFilterFileList);
 
       // 对比两个文件列表
-      const unUsedFiles = allFilterFiles.filter(
-        (item) => !filterFileDependenciesList.includes(item)
+      const unUsedFiles = allFilterFileList.filter(
+        (item) => !filterFileDependencies.includes(item)
       );
 
       // 输出json文件
